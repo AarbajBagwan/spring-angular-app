@@ -1,0 +1,31 @@
+<div style="max-width: 600px; margin: auto; padding: 20px;">
+  <h2>User Management</h2>
+
+  <form (ngSubmit)="addUser()" style="margin-bottom: 20px;">
+    <input type="text" [(ngModel)]="newUser.name" name="name" placeholder="Name" required />
+    <input type="number" [(ngModel)]="newUser.age" name="age" placeholder="Age" required />
+    <input type="number" [(ngModel)]="newUser.salary" name="salary" placeholder="Salary" required />
+    <button type="submit">Add User</button>
+  </form>
+
+  <table border="1" width="100%">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Salary</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.age }}</td>
+        <td>{{ user.salary }}</td>
+        <td><button (click)="deleteUser(user.id!)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
